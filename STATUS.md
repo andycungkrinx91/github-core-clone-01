@@ -27,11 +27,13 @@
 ## Validation Results
 
 - Local `starter` dry-run via `grade-local --driver process --worktree`: `PASSED` (pipeline verified, `15/1000`).
-- Local `starter` dry-run via `grade-local --driver docker --worktree`: `PASSED` (pipeline verified, `15/1000`, live + replay + L1 regrade byte-identical).
-- Repository prep files added: `LICENSE` (`SPDX-License-Identifier: MIT`), `.makefun/owner.json`, updated `.gitignore`.
+- Local `starter` dry-run via `grade-local --driver docker --worktree`: `PASSED` (pipeline verified, `15/1000`, live + replay + L1 regrade byte-identical; note CLI host Node `v24.22.2` vs server checkout `v26.13.1`).
+- `makefun check` (pre-implementation commit `6472676`): `5 passed` (`competition_open`, `snapshot`, `license_osi`, `entry_size`, `committed_provider_key`), `2 expected pre-code fails` (`entrypoint`, `transcripts_present`), `14 skipped`, `5 checked at submission`.
+- `makefun bundle --dry-run`: Requires explicit `--session <transcript_full.jsonl>` when session cwd was opened outside `/data/makefun/github-core-clone-01/`, plus `--harness-version 1.5.11`, `--effort <level>`, and `--system-prompt <file>` (since Antigravity `transcript_full.jsonl` does not embed the system prompt, and entries received from `2026-11-18T12:00Z` require it).
 - Entry conformance (`sdk/run.ts`): `NOT RUN` (implementation not started).
 - Entry `grade-local`: `NOT RUN` (implementation not started).
 
-## Pending Next Gate
+## Pending Next Gate & Blockers Before Submission
 
-- **Implementation & Remote Repo Approval:** Ready to implement [ARCHITECTURE_PLAN.md](./docs/ARCHITECTURE_PLAN.md) (`main.ts` + static Go core), run local conformance/benchmarks, and (when authorized) create the public GitHub repo under `andycungkrinx91`.
+1. **Implementation Approval:** Ready to implement [ARCHITECTURE_PLAN.md](./docs/ARCHITECTURE_PLAN.md) (`main.ts` + static Go core), run conformance/benchmarks, and create the public GitHub repo under `andycungkrinx91` when authorized.
+2. **Transcript Gate Readiness:** Before building/submitting, resolve the `--system-prompt <file>` + `--effort` requirement reported by `makefun bundle --dry-run` (or run build sessions directly inside `/data/makefun/github-core-clone-01/` with exact `--harness-version 1.5.11`, `--effort`, and `--system-prompt`).
