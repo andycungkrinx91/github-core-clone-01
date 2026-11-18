@@ -1,0 +1,10 @@
+# Local reference snapshots & transient artifacts (keep out of submission tree / 16 MiB cap)
+references/
+artifacts/
+logs/
+node_modules/
+*.log
+*.tar.gz
+.env*
+*keypair*.json
+credentials
