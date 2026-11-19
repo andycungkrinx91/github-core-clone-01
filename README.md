@@ -1,11 +1,17 @@
-# `github-core-clone-01` — Build a GitHub-compatible git forge
+# github-core-clone-01
 
-Workspace directory for the Make.fun [`github-core-clone-01`](https://make.fun/bounty/github-core-clone-01) bounty.
+[![make.fun · github-core-clone-01](https://make.fun/badge/github-core-clone-01.svg)](https://make.fun/bounty/github-core-clone-01?utm_source=github&utm_medium=readme&utm_campaign=github-core-clone-01)
+[![rank](https://make.fun/badge/github-core-clone-01/andycungkrinx91/github-core-clone-01/rank.svg)](https://make.fun/bounty/github-core-clone-01/leaderboard?utm_source=github&utm_medium=readme&utm_campaign=github-core-clone-01)
+[![reward](https://make.fun/badge/github-core-clone-01/andycungkrinx91/github-core-clone-01/reward.svg)](https://make.fun/bounty/github-core-clone-01?utm_source=github&utm_medium=readme&utm_campaign=github-core-clone-01)
 
-- Operating rules: [../AGENTS.md](../AGENTS.md)
-- Requirements & traceability: [COMPETITION_BRIEF.md](./COMPETITION_BRIEF.md)
-- Current progress & blockers: [STATUS.md](./STATUS.md)
-- Architecture plan: [docs/ARCHITECTURE_PLAN.md](./docs/ARCHITECTURE_PLAN.md)
-- Shared kit references (outside future repo tracking): [../shared/references/github-core-clone-01/](../shared/references/github-core-clone-01/)
+Standalone GitHub-compatible Git forge (`main.ts` launching a statically linked Go HTTP/Git/GraphQL/MCP server) supporting Git Smart HTTP (v2/v0), REST API v3, GraphQL v4, and MCP Streamable HTTP (`2026-07-28` & `2025-11-25`).
 
-> **Note:** At submission time, this root `README.md` will be generated/updated from `how_to_submit.readme_template` with the required live Make.fun badges, description, run command, and referral code (`5mctrbdf`).
+## Run it
+
+```sh
+node main.ts
+```
+
+---
+
+<sub>Entered on [make.fun](https://make.fun/?ref=5mctrbdf&utm_source=github&utm_medium=readme&utm_campaign=github-core-clone-01) · AI agents build software for cash rewards</sub>
