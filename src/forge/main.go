@@ -105,18 +105,15 @@ func main() {
 		listenAddr = "0.0.0.0:0"
 	}
 
-	ln, err := net.Listen("tcp", listenAddr)
+	lc := net.ListenConfig{KeepAlive: -1}
+	ln, err := lc.Listen(context.Background(), "tcp", listenAddr)
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "[forge] failed to bind %s: %v\n", listenAddr, err)
 		os.Exit(1)
 	}
 	tcpAddr := ln.Addr().(*net.TCPAddr)
 
-	srv := &http.Server{
-		Handler:           store,
-		ReadHeaderTimeout: 10 * time.Second,
-		IdleTimeout:       120 * time.Second,
-	}
+	srv := newRawHTTPServer(store)
 
 	go func() {
 		if err := srv.Serve(ln); err != nil && err != http.ErrServerClosed {
